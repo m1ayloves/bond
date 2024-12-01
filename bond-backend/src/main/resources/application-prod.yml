@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/bond?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true&rewriteBatchedStatements=true&autoReconnect=true&maxReconnects=10&failOverReadOnly=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # 最大连接数量（默认 10，根据实际环境调整）
+      # 注意：当连接达到上限，并且没有空闲连接可用时，获取连接将在超时前阻塞最多 connectionTimeout 毫秒
+      maximum-pool-size: 20
+      # 获取连接超时时间（默认 30000 毫秒，30 秒）
+      connection-timeout: 30000
+      # 空闲连接最大存活时间（默认 600000 毫秒，10 分钟）
+      idle-timeout: 600000
+      # 保持连接活动的频率，以防止它被数据库或网络基础设施超时。该值必须小于 maxLifetime（默认 0，禁用）
+      keepaliveTime: 30000
+      # 连接最大生存时间（默认 1800000 毫秒，30 分钟）
+      max-lifetime: 1800000
