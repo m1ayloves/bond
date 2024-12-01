@@ -10,6 +10,12 @@ Bond 通讯录管理系统采用 **前后端分离架构**，前端基于 Vue 3 
 
 ---
 
+## 🌐 在线体验
+项目已部署，点击以下链接体验：
+👉 [Bond 通讯录管理系统 Demo](http://mayloves.cyou)
+
+---
+
 ## 🛠 技术栈
 
 ### 后端
@@ -25,11 +31,6 @@ Bond 通讯录管理系统采用 **前后端分离架构**，前端基于 Vue 3 
 - **Ant Design Vue**：UI 组件库。
 - **Axios**：HTTP 请求库。
 - **Vite**：快速开发与构建工具。
-
-### 测试与调试
-- **Postman**：接口测试工具。
-- **Spring Boot Test**：后端单元测试。
-- **p6spy**：SQL 性能监控。
 
 ---
 
@@ -61,40 +62,36 @@ Bond 通讯录管理系统采用 **前后端分离架构**，前端基于 Vue 3 
 ```bash
 git clone https://github.com/m1ayloves/bond.git
 cd bond
+```
 
-后端服务
+#### 后端服务
+1. 初始化数据库：
+   - 在 MySQL 中执行 `bond-backend/init.sql` 脚本。
+2. 修改配置：
+   - 配置 `bond-backend/src/main/resources/application-dev.yml` 中的数据库连接。
+3. 启动服务：
+   ```bash
+   cd bond-backend
+   mvn spring-boot:run
+   ```
+   后端默认运行在 http://localhost:18080
 
-	1.	初始化数据库：
-	•	在 MySQL 中执行 bond-backend/init.sql 脚本。
-	2.	修改配置：
-	•	配置 bond-backend/src/main/resources/application-dev.yml 中的数据库连接。
-	3.	启动服务：
+#### 前端服务
+1. 安装依赖：
+   ```bash
+   cd bond-frontend
+   npm install
+   ```
+2. 启动开发服务器：
+   ```bash
+   npm run dev
+   ```
+   前端默认运行在 http://localhost:5173
 
-cd bond-backend
-mvn spring-boot:run
+---
 
-
-
-后端默认运行在 http://localhost:18080。
-
-前端服务
-
-	1.	安装依赖：
-
-cd bond-frontend
-npm install
-
-
-	2.	启动开发服务器：
-
-npm run dev
-
-
-
-前端默认运行在 http://localhost:5173。
-
-📖 项目结构
-
+## 📖 项目结构
+```
 Bond/
 ├── bond-backend/     # 后端服务
 │   ├── src/          # 源代码
@@ -105,33 +102,19 @@ Bond/
 │   ├── package.json  # Node 项目配置
 │   └── vite.config.js# 前端构建工具配置
 └── README.md         # 项目说明文档
+```
 
-🧪 测试与优化
+---
 
-	•	接口测试：
-使用 Postman 测试后端接口，确保功能正常。
-	•	单元测试：
-使用 Spring Boot Test 对后端逻辑进行验证。
-	•	性能优化：
-使用 p6spy 检查慢查询，优化数据库操作。
-
-🌐 在线体验
-
-项目已部署，点击以下链接体验：
-👉 Bond 通讯录管理系统 Demo
-
-📌 展望
-
+## 📌 展望
 未来可能的优化方向：
-	1.	增加多语言支持，适配全球用户。
-	2.	提供移动端版本，支持多设备使用。
-	3.	引入角色权限管理，支持更复杂的使用场景。
-	4.	集成 AI 功能，实现联系人智能分类与推荐。
+1. 增加多语言支持，适配全球用户。
+2. 提供移动端版本，支持多设备使用。
+3. 引入角色权限管理，支持更复杂的使用场景。
+4. 集成 AI 功能，实现联系人智能分类与推荐。
 
-🤝 贡献
-
+## 🤝 贡献
 欢迎贡献代码或提出建议！请先 Fork 项目并提交 PR。
 
-📜 许可证
-
+## 📜 许可证
 本项目基于 MIT 许可证开源，详情请参考 LICENSE 文件。
