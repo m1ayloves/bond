@@ -119,4 +119,4 @@ Bond/
 欢迎贡献代码或提出建议！请先 Fork 项目并提交 PR。
 
 ## 📜 许可证
-本项目基于 MIT 许可证开源，详情请参考 LICENSE 文件。
+本项目基于 MIT 许可证开源，详情请参考 [LICENSE](LICENSE)。
