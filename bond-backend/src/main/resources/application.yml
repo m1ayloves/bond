@@ -1,0 +1,80 @@
+server:
+  # 项目端口
+  port: 18080
+  servlet:
+    # 项目访问路径
+    context-path: /
+
+spring:
+  # 服务名称，取 pom.xml 中的 artifactId
+  application:
+    name: @project.artifactId@
+  profiles:
+    # 激活dev，对应 application-dev.yml
+    active: dev
+  servlet:
+    # 上传文件大小限制
+    multipart:
+      max-file-size: 100MB # 单个文件最大
+      max-request-size: 100MB # 接收的最大请求大小
+  main:
+    # 允许定义重名的 bean 对象覆盖原有的 bean
+    allow-bean-definition-overriding: true
+    # 允许循环依赖
+    allow-circular-references: true
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jackson:
+    # 日期格式化
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      # 格式化输出
+      indent_output: false
+      # 忽略无法转换的对象
+      fail_on_empty_beans: false
+    deserialization:
+      # 允许对象忽略json中不存在的属性
+      fail_on_unknown_properties: false
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+  config:
+    additional-location: src/main/java
+
+# 安全配置：排除（放行）路径配置
+security:
+  excludes:
+    - /
+    - /auth/login
+    - /auth/register
+    - /static/**
+
+# mybatis-plus 配置
+mybatis-plus:
+  # mapper 文件位置
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  # 类型别名扫描包配置
+  type-aliases-package: cyou.mayloves.bond.entity
+  global-config:
+    # 是否打印 mybatis-plus banner
+    banner: false
+    db-config:
+      # 主键类型
+      id-type: AUTO
+      # where 条件策略
+      where-strategy: NOT_EMPTY
+      # 插入策略
+      insert-strategy: NOT_EMPTY
+      # 更新策略
+      update-strategy: NOT_NULL
+  configuration:
+    # 是否设置字段为 null
+    jdbc-type-for-null: 'NULL'
+    # 是否调用 set 方法时传入 null 值
+    call-setters-on-nulls: true
+    # 去掉 sql 中多余的空格
+    shrink-whitespaces-in-sql: true
